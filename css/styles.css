@@ -488,6 +488,13 @@ footer .disc{max-width:720px;margin-top:10px;line-height:1.7}
   cursor:pointer;transition:background .2s,border-color .2s,color .2s,transform .12s}
 .num-toggle:hover{background:rgba(255,255,255,.12);transform:translateY(-1px)}
 .num-toggle[aria-pressed="true"]{background:rgba(216,148,54,.18);border-color:rgba(216,148,54,.55);color:#F2C778}
+/* 分享連結按鈕（沿用切換鈕風格） */
+.share-btn{display:inline-flex;align-items:center;gap:6px;
+  border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.06);color:#DCE4DA;
+  font-family:var(--sans);font-size:.8rem;font-weight:500;padding:7px 13px;border-radius:999px;
+  cursor:pointer;transition:background .2s,border-color .2s,color .2s,transform .12s}
+.share-btn:hover{background:rgba(255,255,255,.12);transform:translateY(-1px)}
+.share-btn.copied{background:rgba(127,160,138,.28);border-color:rgba(127,160,138,.7);color:#EAF3EC}
 
 /* 自訂提示框：跟隨鼠標、固定在右上方，不被游標擋住 */
 .info-tip{position:fixed;z-index:9999;pointer-events:none;max-width:240px;
