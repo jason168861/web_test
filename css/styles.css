@@ -861,3 +861,121 @@ table#yearTable td.note{font-family:var(--sans);text-align:left;color:#F2C778;fo
   .sm-card{padding:32px 22px 26px}
   .strat-modal{padding:20px 12px}
 }
+
+/* ---------- 財務健檢報告 ---------- */
+.report-sec{background:var(--paper-2)}
+.report-form{background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:28px 26px;box-shadow:0 1px 2px rgba(22,56,46,.04),0 18px 40px -30px rgba(22,56,46,.3)}
+.rf-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 26px}
+.rf-set{border:none;display:flex;flex-direction:column;gap:10px;min-width:0}
+.rf-set legend{font-family:var(--serif);font-weight:700;color:var(--pine);font-size:1rem;margin-bottom:4px}
+.rf-field{display:flex;align-items:center;gap:8px;font-size:.9rem;color:#4A554E}
+.rf-field>span{flex:1;min-width:0}
+.rf-field input{width:42%;max-width:160px;background:var(--paper);border:1px solid var(--line);border-radius:9px;
+  padding:9px 11px;font-family:var(--num);font-size:.98rem;color:var(--ink);text-align:right;outline:none;transition:border-color .2s}
+.rf-field input:focus{border-color:var(--honey);background:#fff}
+.rf-field input::placeholder{color:#C2C8BD;font-family:var(--sans);font-weight:400;opacity:1}
+.rf-field input.rf-invalid{border-color:#C0392B;background:#FFF6F4}
+.rf-err{width:100%;color:#C0392B;font-size:.86rem;font-weight:500;margin:0}
+.rf-field>i{font-style:normal;font-size:.8rem;color:#9AA39C;width:18px}
+.rf-foot{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:24px}
+.rf-go{background:var(--pine);color:#fff;border:none;border-radius:12px;padding:14px 26px;
+  font-family:var(--sans);font-weight:700;font-size:1rem;cursor:pointer;transition:background .2s,transform .12s}
+.rf-go:hover{background:var(--pine-2);transform:translateY(-1px)}
+.rf-priv{font-size:.8rem;color:#74807A}
+
+/* 報告視窗 */
+.report-modal{position:fixed;inset:0;z-index:200;display:none;justify-content:center;align-items:flex-start;
+  padding:30px 16px;overflow:auto;background:rgba(4,14,10,.66);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+.report-modal.show{display:flex}
+.rm-card{position:relative;width:min(760px,100%);margin:auto;background:#fff;border-radius:18px;
+  box-shadow:0 40px 90px -24px rgba(0,0,0,.6);overflow:hidden}
+.rm-actions{position:sticky;top:0;z-index:2;display:flex;gap:10px;align-items:center;justify-content:flex-end;
+  padding:12px 16px;background:rgba(250,246,238,.92);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.rm-dl{margin-right:auto;background:#06C755;color:#fff;border:none;border-radius:999px;padding:10px 20px;
+  font-family:var(--sans);font-weight:700;font-size:.92rem;cursor:pointer;transition:filter .2s,transform .12s}
+.rm-dl:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.rm-x{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:#fff;color:#74807A;
+  font-size:1rem;cursor:pointer;line-height:1}
+.rm-x:hover{color:var(--pine);border-color:var(--sage)}
+
+/* 報告文件本體 */
+.rdoc{padding:34px 38px 30px;color:#3E4A43}
+.rdoc-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;
+  padding-bottom:18px;border-bottom:2px solid var(--pine)}
+.rdoc-brand{font-size:.82rem;color:var(--pine-2);margin-bottom:6px}
+.rdoc-head h2{font-family:var(--serif);font-size:1.5rem;color:var(--pine)}
+.rdoc-meta{font-size:.8rem;color:#74807A;text-align:right;line-height:1.7;flex:none}
+.rdoc-section{margin-top:24px}
+.rdoc-section h3{font-family:var(--serif);font-size:1.12rem;color:var(--pine);margin-bottom:12px}
+
+.rscore{display:flex;align-items:center;gap:24px;background:var(--paper);border:1px solid var(--line);
+  border-radius:14px;padding:20px 22px}
+.score-ring{width:120px;height:120px;flex:none}
+.rscore-side{flex:1;min-width:0}
+.rscore-grade{font-family:var(--serif);font-size:1.4rem;font-weight:700;line-height:1.1}
+.rscore-side p{font-size:.86rem;color:#5A655D;margin:4px 0 12px;line-height:1.6}
+.rscore-bars{display:grid;grid-template-columns:1fr 1fr;gap:8px 18px}
+.rsub{font-size:.78rem;color:#5A655D}
+.rsub b{float:right;color:var(--pine);font-family:var(--num)}
+.rsub i{display:block;height:6px;border-radius:99px;background:#E7DEC9;margin-top:4px;overflow:hidden}
+.rsub u{display:block;height:100%;background:var(--sage);border-radius:99px}
+
+.rrow3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.rkpi{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-align:center}
+.rkpi span{display:block;font-size:.78rem;color:#74807A;margin-bottom:6px}
+.rkpi b{font-family:var(--num);font-size:1.15rem;color:var(--pine)}
+.rkpi.hl{background:rgba(127,160,138,.14);border-color:rgba(127,160,138,.45)}
+.rkpi.warn{background:rgba(216,148,54,.12);border-color:rgba(216,148,54,.45)}
+.rkpi.warn b{color:#C0612A}
+.rkpi.good{background:rgba(46,125,91,.1);border-color:rgba(46,125,91,.4)}
+.rkpi.good b{color:#2E7D5B}
+
+.ralloc{margin-top:14px}
+.ralloc-bar{display:flex;height:14px;border-radius:99px;overflow:hidden;background:#E7DEC9}
+.ralloc-bar i{display:block;height:100%}
+.ralloc-leg{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px;font-size:.8rem;color:#5A655D}
+.ralloc-leg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:middle}
+
+.rnote{font-size:.9rem;color:#4A554E;line-height:1.7}
+.rnote b{color:var(--pine);font-family:var(--num)}
+.rmini{font-size:.78rem;color:#9AA39C;margin-top:8px}
+.rprog{position:relative;height:22px;border-radius:99px;background:#E7DEC9;overflow:hidden;margin-top:10px}
+.rprog u{display:block;height:100%;background:linear-gradient(90deg,var(--sage),var(--pine-2));border-radius:99px}
+.rprog span{position:absolute;inset:0;display:grid;place-items:center;font-size:.74rem;color:#16382E;font-weight:600}
+.rproj{width:100%;height:auto;margin-top:12px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:6px}
+.rtake{margin:0;padding-left:20px;font-size:.92rem;color:#4A554E;line-height:1.8}
+.rtake li{margin-bottom:6px}
+
+.rcta{background:linear-gradient(135deg,rgba(216,148,54,.16),rgba(127,160,138,.12));
+  border:1px solid rgba(216,148,54,.4);border-radius:14px;padding:22px 24px;margin-top:26px}
+.rcta p{font-size:.92rem;color:#4A554E;line-height:1.8;margin:8px 0 16px}
+.rcta-line{display:inline-block;background:#06C755;color:#fff;text-decoration:none;font-weight:700;
+  padding:12px 22px;border-radius:999px;transition:filter .2s,transform .12s}
+.rcta-line:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.rdoc-disc{font-size:.74rem;color:#9AA39C;line-height:1.7;margin-top:22px}
+.rdoc-foot{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-size:.78rem;color:var(--pine-2)}
+
+@media (max-width:620px){
+  .rf-grid{grid-template-columns:1fr;gap:16px}
+  .rdoc{padding:24px 20px}
+  .rdoc-head{flex-direction:column}
+  .rdoc-meta{text-align:left}
+  .rscore{flex-direction:column;text-align:center;gap:14px}
+  .rscore-bars{grid-template-columns:1fr}
+  .rrow3{grid-template-columns:1fr;gap:10px}
+  .rkpi{display:flex;justify-content:space-between;align-items:center;text-align:left}
+  .rkpi span{margin-bottom:0}
+}
+
+/* 列印：只留報告本體，隱藏按鈕與其他區塊 */
+@media print{
+  body{background:#fff}
+  body>*:not(.report-modal){display:none !important}
+  .report-modal{position:static !important;display:block !important;overflow:visible;background:#fff;padding:0;-webkit-backdrop-filter:none;backdrop-filter:none}
+  .rm-card{width:100%;max-width:none;margin:0;border-radius:0;box-shadow:none;overflow:visible}
+  .rm-actions{display:none !important}
+  .rdoc{padding:0}
+  .rdoc-section,.rscore,.rkpi,.rcta,.rproj{break-inside:avoid}
+  .rcta-line,.rdoc-foot{color:#16382E !important}
+}

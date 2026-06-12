@@ -29,6 +29,7 @@
       <li><a href="#calc">複利試算</a></li>
       <li><a href="#quiz">性格測驗</a></li>
       <li><a href="#strategies">理財冷知識</a></li>
+      <li><a href="#report">財務健檢</a></li>
       <li><a href="#process">合作流程</a></li>
       <li><a href="#about">關於我</a></li>
       <li><a href="#faq">常見問題</a></li>
@@ -377,6 +378,57 @@
   </div>
 </section>
 
+<!-- 財務健檢報告 -->
+<section id="report" class="report-sec">
+  <div class="wrap">
+    <div class="sec-head reveal" style="text-align:center;margin-left:auto;margin-right:auto">
+      <span class="tag">FREE CHECKUP</span>
+      <h2>3 分鐘財務健檢報告</h2>
+      <p>填幾個數字，馬上生成一份專屬的財務健檢——體質評分、淨值、儲蓄率、緊急預備金、退休缺口，一次看清楚。</p>
+    </div>
+
+    <form class="report-form reveal" id="reportForm" novalidate>
+      <div class="rf-grid">
+        <fieldset class="rf-set">
+          <legend>👤 關於你</legend>
+          <label class="rf-field"><span>目前年齡</span><input id="rfAge" type="text" inputmode="numeric" placeholder="30"><i>歲</i></label>
+          <label class="rf-field"><span>預計退休年齡</span><input id="rfRetire" type="text" inputmode="numeric" placeholder="65"><i>歲</i></label>
+        </fieldset>
+
+        <fieldset class="rf-set">
+          <legend>💵 每月收支</legend>
+          <label class="rf-field"><span>月收入（稅後）</span><input id="rfIncome" type="text" inputmode="numeric" placeholder="60,000"><i>元</i></label>
+          <label class="rf-field"><span>月支出</span><input id="rfExpense" type="text" inputmode="numeric" placeholder="40,000"><i>元</i></label>
+        </fieldset>
+
+        <fieldset class="rf-set">
+          <legend>🏦 資產（市值）</legend>
+          <label class="rf-field"><span>現金／活存</span><input id="rfCash" type="text" inputmode="numeric" placeholder="300,000"><i>元</i></label>
+          <label class="rf-field"><span>投資（股／基金／ETF）</span><input id="rfInvest" type="text" inputmode="numeric" placeholder="500,000"><i>元</i></label>
+          <label class="rf-field"><span>不動產</span><input id="rfRealty" type="text" inputmode="numeric" placeholder="0"><i>元</i></label>
+        </fieldset>
+
+        <fieldset class="rf-set">
+          <legend>📉 負債（餘額）</legend>
+          <label class="rf-field"><span>房貸</span><input id="rfMortgage" type="text" inputmode="numeric" placeholder="0"><i>元</i></label>
+          <label class="rf-field"><span>其他貸款（信貸／車貸／卡債）</span><input id="rfDebt" type="text" inputmode="numeric" placeholder="0"><i>元</i></label>
+        </fieldset>
+
+        <fieldset class="rf-set">
+          <legend>⚙️ 假設</legend>
+          <label class="rf-field"><span>預期年報酬率</span><input id="rfRate" type="text" inputmode="decimal" placeholder="6"><i>%</i></label>
+          <label class="rf-field"><span>退休後月支出（今值）</span><input id="rfRetireExp" type="text" inputmode="numeric" placeholder="留空＝沿用月支出"><i>元</i></label>
+        </fieldset>
+      </div>
+
+      <div class="rf-foot">
+        <button type="submit" class="rf-go">📋 產生我的健檢報告</button>
+        <span class="rf-priv">🔒 資料只在你的瀏覽器計算，不會上傳。</span>
+      </div>
+    </form>
+  </div>
+</section>
+
 <!-- 流程 -->
 <section id="process">
   <div class="wrap">
@@ -557,6 +609,7 @@
 <script src="js/calc-render.js"></script>
 <script src="js/share.js"></script>
 <script src="js/unlock.js"></script>
+<script src="js/report.js"></script>
 <!-- ── 其他區塊 ── -->
 <script src="js/quiz.js"></script>
 <script src="js/strategies.js"></script>
