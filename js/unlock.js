@@ -7,10 +7,10 @@
   // │ 總開關：true = 啟用鎖定（加 LINE 才開放）｜false = 全部開放      │
   // │ LINE 解鎖碼還沒設定好前，先設 false。設好後改 true 即啟用。      │
   // └─────────────────────────────────────────────────────────────┘
-  const LOCK_ENABLED=false;
+  const LOCK_ENABLED=true;
 
   const KEY='calcFeatUnlocked';
-  const CODE='GROW2026';   // ← 解鎖碼：請與 LINE 官方帳號「歡迎訊息」中的代碼一致
+  const CODE='0000';   // ← 解鎖碼：請與 LINE 官方帳號「歡迎訊息」中的代碼一致
   const LINE='https://line.me/R/ti/p/@453ubihw';
 
   const norm=s=>String(s||'').trim().toUpperCase();
