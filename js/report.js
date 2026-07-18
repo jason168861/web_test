@@ -99,13 +99,11 @@
   // ---- 自動摘要 ----
   function takeaways(d){
     const t=[];
-    if(d.savingsRate>=0.2) t.push('儲蓄率 '+pct(d.savingsRate)+'，相當健康，請保持並讓結餘自動投入。');
-    else if(d.income>0) t.push('儲蓄率僅 '+pct(d.savingsRate)+'，建議先從「記帳＋固定提撥」把它拉到 20% 以上。');
-    if(d.emFundMonths<6) t.push('緊急預備金約 '+d.emFundMonths.toFixed(1)+' 個月，建議補到 6 個月生活費再加碼投資。');
-    else t.push('緊急預備金 '+d.emFundMonths.toFixed(1)+' 個月，已達建議水位，多的現金可考慮投入。');
-    if(d.gap>0) t.push('依現況投影，退休時預估還差 '+money(d.gap)+'；越早提高投入或報酬，缺口越好補。');
-    else t.push('依現況投影，退休準備已可達標，重點轉為「守成與配置」。');
-    if(d.debtRatio>0.6) t.push('負債比偏高（'+pct(d.debtRatio)+'），優先處理高利率負債能立刻改善體質。');
+    if(d.income>0) t.push('儲蓄率 '+pct(d.savingsRate)+'（一般參考水準約 20%）。');
+    t.push('緊急預備金約 '+d.emFundMonths.toFixed(1)+' 個月（一般參考水準約 6 個月）。');
+    if(d.gap>0) t.push('依現況投影，退休時預估與 4% 法則所需金額尚有 '+money(d.gap)+' 的差距。');
+    else t.push('依現況投影，退休累積已達 4% 法則所需金額。');
+    if(d.liabilities>0) t.push('負債比 '+pct(d.debtRatio)+'。');
     return t;
   }
 
@@ -122,7 +120,7 @@
 
     return ''
     +'<div class="rdoc-head">'
-      +'<div><div class="rdoc-brand">🌱 周俊誠 ・ RFC® 國際認證財務顧問師</div>'
+      +'<div><div class="rdoc-brand">🌱 享退休 ・ RFC® 國際認證財務顧問師</div>'
       +'<h2>個人財務健檢報告</h2></div>'
       +'<div class="rdoc-meta">產出日期 '+dateStr+'<br>為 '+d.age+' 歲的你</div>'
     +'</div>'
@@ -156,12 +154,12 @@
         +'<div class="rkpi"><span>月支出</span><b>'+money(d.expense)+'</b></div>'
         +'<div class="rkpi hl"><span>月結餘</span><b>'+money(d.monthlySave)+'</b></div>'
       +'</div>'
-      +'<p class="rnote">儲蓄率 <b>'+(d.income>0?pct(d.savingsRate):'—')+'</b>'+(d.income>0?'（建議 ≥ 20%）':'（請填月收入以計算）')+'</p>'
+      +'<p class="rnote">儲蓄率 <b>'+(d.income>0?pct(d.savingsRate):'—')+'</b>'+(d.income>0?'（一般參考約 20%）':'（請填月收入以計算）')+'</p>'
     +'</section>'
 
     +'<section class="rdoc-section">'
       +'<h3>③ 緊急預備金</h3>'
-      +'<p class="rnote">手上現金約可支撐 <b>'+d.emFundMonths.toFixed(1)+' 個月</b>生活費，建議至少 <b>6 個月</b>。</p>'
+      +'<p class="rnote">手上現金約可支撐 <b>'+d.emFundMonths.toFixed(1)+' 個月</b>生活費，一般參考水準約 <b>6 個月</b>。</p>'
       +'<div class="rprog"><u style="width:'+emPctW+'%"></u><span>'+emPctW+'% / 6 個月目標</span></div>'
     +'</section>'
 
@@ -177,7 +175,7 @@
     +'</section>'
 
     +'<section class="rdoc-section">'
-      +'<h3>⑤ 重點摘要</h3>'
+      +'<h3>⑤ 數據摘要</h3>'
       +'<ul class="rtake">'+takeaways(d).map(t=>'<li>'+t+'</li>').join('')+'</ul>'
     +'</section>'
 
@@ -188,7 +186,7 @@
     +'</section>'
 
     +'<p class="rdoc-disc">＊本報告由你輸入的數字自動試算，僅供教育與參考之用，不構成投資、保險或稅務建議；4% 法則與報酬率為簡化假設，未計入通膨、稅費與勞保／勞退年金。實際規劃請依個人狀況審慎評估。</p>'
-    +'<div class="rdoc-foot">周俊誠 ・ RFC® 國際認證財務顧問師　│　LINE：@453ubihw　│　先找問題，才給工具</div>';
+    +'<div class="rdoc-foot">享退休 ・ RFC® 國際認證財務顧問師　│　LINE：@453ubihw　│　先找問題，才給工具</div>';
   }
 
   // ---- 報告視窗 ----

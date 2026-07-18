@@ -311,9 +311,15 @@ footer .disc{max-width:720px;margin-top:10px;line-height:1.7}
   .quote{flex-basis:calc((100% - 22px)/2)}   /* 平板:一頁 2 則 */
   .trust-grid{grid-template-columns:repeat(2,1fr);gap:24px 12px}
   .nav-links{display:none}
-  .portrait{order:-1}
+  /* 行動版:文字(標題/訴求)優先，大頭照縮小排到下方，一進頁就看得到在做什麼 */
+  .hero-grid{gap:28px}
+  .portrait{order:1;margin-top:4px}
+  .portrait .frame{width:min(200px,50vw)}
+  .portrait .frame span{font-size:3.4rem}
+  .portrait .badge{right:-6px;bottom:16px;padding:9px 13px;font-size:.78rem}
+  .portrait .badge b{font-size:1.05rem}
   section{padding:64px 0}
-  .hero{padding:56px 0 48px}
+  .hero{padding:44px 0 48px}
   .calc-sec{margin:0}
   body{font-size:16px}
 }
@@ -967,6 +973,9 @@ table#yearTable td.note{font-family:var(--sans);text-align:left;color:#F2C778;fo
   .rkpi{display:flex;justify-content:space-between;align-items:center;text-align:left}
   .rkpi span{margin-bottom:0}
 }
+
+/* ---------- 免費工具區 intro ---------- */
+.tools-intro{padding-bottom:20px}
 
 /* 列印：只留報告本體，隱藏按鈕與其他區塊 */
 @media print{

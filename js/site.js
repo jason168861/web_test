@@ -65,4 +65,4 @@ const spy=new IntersectionObserver(es=>es.forEach(e=>{
     if(navMap[e.target.id])navMap[e.target.id].classList.add('active');
   }
 }),{rootMargin:'-45% 0px -50% 0px',threshold:0});
-['services','calc','quiz','process','about','faq'].forEach(id=>{const el=$(id);if(el)spy.observe(el);});
+['services','about','stories','tools','process','faq'].forEach(id=>{const el=$(id);if(el)spy.observe(el);});
