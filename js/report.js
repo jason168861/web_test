@@ -63,17 +63,6 @@
       parts:{sSave,sEm,sDebt,sRet}, byYear:sim.byYear};
   }
 
-  // ---- 評分環 ----
-  function donut(score,color){
-    const R=52, C=2*Math.PI*R, off=C*(1-clamp(score,0,100)/100);
-    return '<svg viewBox="0 0 120 120" class="score-ring" aria-hidden="true">'
-      +'<circle cx="60" cy="60" r="52" fill="none" stroke="#E7DEC9" stroke-width="11"/>'
-      +'<circle cx="60" cy="60" r="52" fill="none" stroke="'+color+'" stroke-width="11" stroke-linecap="round" '
-        +'stroke-dasharray="'+C.toFixed(1)+'" stroke-dashoffset="'+off.toFixed(1)+'" transform="rotate(-90 60 60)"/>'
-      +'<text x="60" y="56" text-anchor="middle" font-family="Fraunces,serif" font-size="34" font-weight="650" fill="#16382E">'+score+'</text>'
-      +'<text x="60" y="78" text-anchor="middle" font-size="13" fill="#74807A">／100</text></svg>';
-  }
-
   // ---- 退休投影面積圖 ----
   function projChart(d){
     const W=620,H=200,pl=8,pr=8,pt=14,pb=24;
@@ -99,8 +88,8 @@
   // ---- 自動摘要 ----
   function takeaways(d){
     const t=[];
-    if(d.income>0) t.push('儲蓄率 '+pct(d.savingsRate)+'（一般參考水準約 20%）。');
-    t.push('緊急預備金約 '+d.emFundMonths.toFixed(1)+' 個月（一般參考水準約 6 個月）。');
+    if(d.income>0) t.push('儲蓄率 '+pct(d.savingsRate)+'。');
+    t.push('緊急預備金約 '+d.emFundMonths.toFixed(1)+' 個月。');
     if(d.gap>0) t.push('依現況投影，退休時預估與 4% 法則所需金額尚有 '+money(d.gap)+' 的差距。');
     else t.push('依現況投影，退休累積已達 4% 法則所需金額。');
     if(d.liabilities>0) t.push('負債比 '+pct(d.debtRatio)+'。');
@@ -126,10 +115,9 @@
     +'</div>'
 
     +'<section class="rdoc-section rscore">'
-      +donut(d.score,d.grade.c)
       +'<div class="rscore-side">'
         +'<div class="rscore-grade" style="color:'+d.grade.c+'">'+d.grade.t+'</div>'
-        +'<p>綜合「儲蓄率・緊急預備金・負債・退休準備」四面向的財務體質分數。</p>'
+        +'<p>綜合「儲蓄率・緊急預備金・負債・退休準備」四面向的財務體質評估。</p>'
         +'<div class="rscore-bars">'
           +sub('儲蓄率',d.parts.sSave,25)+sub('緊急預備金',d.parts.sEm,25)
           +sub('負債控制',d.parts.sDebt,25)+sub('退休準備',d.parts.sRet,25)
@@ -154,12 +142,12 @@
         +'<div class="rkpi"><span>月支出</span><b>'+money(d.expense)+'</b></div>'
         +'<div class="rkpi hl"><span>月結餘</span><b>'+money(d.monthlySave)+'</b></div>'
       +'</div>'
-      +'<p class="rnote">儲蓄率 <b>'+(d.income>0?pct(d.savingsRate):'—')+'</b>'+(d.income>0?'（一般參考約 20%）':'（請填月收入以計算）')+'</p>'
+      +'<p class="rnote">儲蓄率 <b>'+(d.income>0?pct(d.savingsRate):'—')+'</b>'+(d.income>0?'':'（請填月收入以計算）')+'</p>'
     +'</section>'
 
     +'<section class="rdoc-section">'
       +'<h3>③ 緊急預備金</h3>'
-      +'<p class="rnote">手上現金約可支撐 <b>'+d.emFundMonths.toFixed(1)+' 個月</b>生活費，一般參考水準約 <b>6 個月</b>。</p>'
+      +'<p class="rnote">手上現金約可支撐 <b>'+d.emFundMonths.toFixed(1)+' 個月</b>生活費。</p>'
       +'<div class="rprog"><u style="width:'+emPctW+'%"></u><span>'+emPctW+'% / 6 個月目標</span></div>'
     +'</section>'
 

@@ -69,7 +69,8 @@ header{
 }
 .hero h1{
   font-family:var(--serif);font-weight:700;color:var(--pine);
-  font-size:clamp(2.1rem, 4.6vw, 3.3rem);line-height:1.35;margin-bottom:20px;
+  font-size:clamp(1.9rem, 3.2vw, 2.75rem);line-height:1.4;margin-bottom:20px;
+  text-wrap:balance;
 }
 .hl{position:relative;white-space:nowrap}
 .hl svg{position:absolute;left:0;bottom:-6px;width:100%;height:12px}
@@ -94,6 +95,21 @@ header{
   font-size:.85rem;line-height:1.5;
 }
 .portrait .badge b{font-family:var(--num);font-size:1.3rem;color:var(--pine);display:block}
+
+/* ---------- Hero:品牌 kicker・身分・方法・CTA 層級 ---------- */
+.hero-copy{max-width:40em}
+.hero-brand{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-bottom:20px}
+.hero-brand-name{font-family:var(--serif);font-weight:700;font-size:1.35rem;color:var(--pine);letter-spacing:.02em}
+.hero-brand-desc{font-size:.92rem;color:var(--pine-2);position:relative;padding-left:14px}
+.hero-brand-desc::before{content:"";position:absolute;left:0;top:.6em;width:5px;height:5px;border-radius:50%;background:var(--honey)}
+.btn.btn-lg{padding:15px 30px;font-size:1.02rem;font-weight:700}
+.hero-cta-primary{box-shadow:0 14px 30px -14px rgba(22,56,46,.55)}
+.btn.ghost{background:transparent;color:var(--pine);border:1.5px solid var(--line)}
+.btn.ghost:hover{background:var(--paper-2);color:var(--pine-2);border-color:var(--sage);transform:translateY(-1px)}
+.hero-id{font-size:.9rem;color:#5B6760;margin-top:28px}
+.hero-method{font-family:var(--serif);font-size:1.02rem;color:var(--pine-2);margin-top:5px}
+.hero-method::before{content:"「";opacity:.45}
+.hero-method::after{content:"」";opacity:.45}
 
 /* ---------- 信任條 ---------- */
 .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper-2)}
@@ -311,8 +327,14 @@ footer .disc{max-width:720px;margin-top:10px;line-height:1.7}
   .quote{flex-basis:calc((100% - 22px)/2)}   /* 平板:一頁 2 則 */
   .trust-grid{grid-template-columns:repeat(2,1fr);gap:24px 12px}
   .nav-links{display:none}
-  /* 行動版:文字(標題/訴求)優先，大頭照縮小排到下方，一進頁就看得到在做什麼 */
-  .hero-grid{gap:28px}
+  /* 行動版:文字(品牌/標題/CTA)優先，大頭照縮小排到下方，一進頁就看得到在做什麼與下一步 */
+  .hero-grid{gap:24px}
+  .hero-copy{max-width:none}
+  .hero-brand{margin-bottom:14px}
+  .hero p.lead{margin-bottom:20px}
+  .hero-cta{flex-direction:column;align-items:stretch;gap:12px}
+  .hero-cta .btn{width:100%;text-align:center}
+  .hero-id{margin-top:22px}
   .portrait{order:1;margin-top:4px}
   .portrait .frame{width:min(200px,50vw)}
   .portrait .frame span{font-size:3.4rem}
@@ -406,6 +428,9 @@ footer .disc{max-width:720px;margin-top:10px;line-height:1.7}
   .quiz-detail{grid-template-columns:1fr}
   .quote{flex-basis:100%}        /* 手機:一頁 1 則 */
   .q-nav{display:none}           /* 改用滑動 + 圓點 */
+  /* 手機:主標題壓縮字級與行高,讓完整標題與主 CTA 落在第一屏,換行自然不孤字 */
+  .hero h1{font-size:1.72rem;line-height:1.5;margin-bottom:14px}
+  .hero .btn.btn-lg{padding:15px 22px;font-size:1rem}
 }
 
 /* 浮動諮詢按鈕 */
