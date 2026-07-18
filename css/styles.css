@@ -14,7 +14,7 @@
   --num:"Fraunces", "Noto Serif TC", serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -69,7 +69,7 @@ header{
 }
 .hero h1{
   font-family:var(--serif);font-weight:700;color:var(--pine);
-  font-size:clamp(1.9rem, 3vw, 2.5rem);line-height:1.35;margin-bottom:22px;
+  font-size:clamp(1.9rem, 2.9vw, 2.4rem);line-height:1.3;margin-bottom:22px;
   text-wrap:balance;
 }
 .hero-h1-br{display:inline}
@@ -99,8 +99,10 @@ header{
 
 /* ---------- Hero:小標・身分・CTA 層級 ---------- */
 .hero-copy{max-width:40em}
-.hero-kicker{display:inline-block;font-size:.9rem;letter-spacing:.06em;color:var(--pine-2);
-  background:var(--honey-soft);padding:6px 15px;border-radius:999px;margin-bottom:18px}
+/* 小標:純分類文字(無膠囊底),前置一條蜂蜜短線做標記 */
+.hero-kicker{display:inline-flex;align-items:center;gap:9px;font-size:.95rem;letter-spacing:.04em;
+  color:var(--pine-2);margin-bottom:16px}
+.hero-kicker::before{content:"";width:18px;height:2px;border-radius:2px;background:var(--honey);flex:none}
 .btn.btn-lg{padding:15px 30px;font-size:1.02rem;font-weight:700}
 .hero-cta-primary{box-shadow:0 14px 30px -14px rgba(22,56,46,.55);white-space:nowrap}
 /* 次要 CTA:輕量文字連結,視覺層級明顯低於主 CTA */
@@ -339,7 +341,7 @@ footer .disc{max-width:720px;margin-top:10px;line-height:1.7}
   .hero-id-ava{display:block}
   .portrait{display:none}
   section{padding:64px 0}
-  .hero{padding:40px 0 44px}
+  .hero{padding:36px 0 22px}
   .calc-sec{margin:0}
   body{font-size:16px}
 }
@@ -427,8 +429,7 @@ footer .disc{max-width:720px;margin-top:10px;line-height:1.7}
   .quote{flex-basis:100%}        /* 手機:一頁 1 則 */
   .q-nav{display:none}           /* 改用滑動 + 圓點 */
   /* 手機:主標題放大(約36–40px)、行高緊湊;隱藏桌機強制斷行,標題自然平衡成2–3行 */
-  .hero h1{font-size:clamp(2.15rem,9.4vw,2.55rem);line-height:1.2;margin-bottom:20px}
-  .hero-h1-br{display:none}
+  .hero h1{font-size:clamp(2.1rem,8.9vw,2.4rem);line-height:1.25;margin-bottom:18px}
   .hero p.lead{font-size:1.06rem;line-height:1.6;margin-bottom:26px}
   .hero .btn.btn-lg{padding:15px 18px;font-size:.95rem}
 }
