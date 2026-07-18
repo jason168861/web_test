@@ -429,7 +429,8 @@ footer .disc{max-width:720px;margin-top:10px;line-height:1.7}
   .quote{flex-basis:100%}        /* 手機:一頁 1 則 */
   .q-nav{display:none}           /* 改用滑動 + 圓點 */
   /* 手機:主標題放大(約36–40px)、行高緊湊;隱藏桌機強制斷行,標題自然平衡成2–3行 */
-  .hero h1{font-size:clamp(2.1rem,8.9vw,2.4rem);line-height:1.25;margin-bottom:18px}
+  .hero h1{font-size:clamp(2.05rem,8.4vw,2.3rem);line-height:1.22;margin-bottom:18px}
+  .hero-h1-br{display:none}
   .hero p.lead{font-size:1.06rem;line-height:1.6;margin-bottom:26px}
   .hero .btn.btn-lg{padding:15px 18px;font-size:.95rem}
 }
